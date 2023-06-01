@@ -121,3 +121,21 @@ gitignore : git으로 올리지 않을 파일들을 설정해주는 파일
 -str1 과 str2에 리터럴 문자열 abc가 저장된 경우는 ==로 판별이 됨
 -str1과 str2가 Scanner를 통해 입력받은 문자열 abc인 경우는 ==로 판별이 안됨
 -str1.equals(str2);<비교방법 equals();를 이용한다
+
+day3.homwork
+성별(m:남성,w여성)을 입력받아 여성인지 확인하는 코드
+조건 연산자 이용
+package : day3.homwork file : ex1_conditional
+input gender :
+m
+are you a women? false
+
+성별(M:남성,W:여성)를 입력받아 M이면 남성을, W이면 여성을 출력하는 코드를 작성하세요. if문 이용
+(package : day3.homework, file : Ex2_if) 
+input gender : 
+M
+Are you a women? man
+
+input gender : 
+W
+Are you a women? woman
