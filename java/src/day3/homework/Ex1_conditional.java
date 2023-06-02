@@ -9,7 +9,8 @@ public class Ex1_conditional {
 		System.out.println("input gender : ");
 		char gender = sc.next().charAt(0); 
 		boolean result = gender=='W' ? true : false;
-		System.out.println("are you a women? "+result);
+		System.out.println("Are you a women? "+result);
+		sc.close();
 		/*
 		if(gender=='W') {
 			System.out.println("are you a women? "+result);
