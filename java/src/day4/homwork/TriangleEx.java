@@ -22,6 +22,14 @@ public class TriangleEx {
 		int num2 = sc.nextInt();
 		int num3 = sc.nextInt();
 		int result=0;
+		if((num+num2)>num3 || (num2+num3)>num ||(num+num3)>num2) {
+			System.out.println("삼각형을 만들수있습니다.");
+		}
+		else {
+			System.out.println("불가능합니다.");
+		}
+		
+		/*
 		if(num>num2 && num>num3) {
 			result = num2+num3;
 			if(num<result) {
@@ -49,10 +57,12 @@ public class TriangleEx {
 				System.out.println("불가능합니다.");
 			}
 		}
-		else {
+		else if(num==num2 && num==num3) {
+			System.out.println("삼각형을 만들수있습니다.");
+		}
+		else
 			System.out.println("불가능합니다.");
 		}
-		
-		}
-
+	*/
 	}
+}
