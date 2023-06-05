@@ -1,5 +1,7 @@
 package day5.homework;
 
+import java.util.Scanner;
+
 public class TeamLeaderEx {
 
 	public static void main(String[] args) {
@@ -17,6 +19,12 @@ public class TeamLeaderEx {
 */
 	
 	final int student = 30;
+	int snum;
+	Scanner sc = new Scanner(System.in);
+	System.out.println("input stdent number");
+	snum = sc.nextInt();
+	switch(snum) { 
+	}
 	
 	}
 

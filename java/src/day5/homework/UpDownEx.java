@@ -1,5 +1,7 @@
 package day5.homework;
 
+import java.util.Scanner;
+
 public class UpDownEx {
 
 	public static void main(String[] args) {
@@ -16,6 +18,26 @@ public class UpDownEx {
 	Good!
 
  */
-	}
+		int min=1, max=100;
+		int random = (int)(Math.random()*(max-min+1)+min);
+		int num= 0;
+		System.out.println("정답: "+random);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("input number (1~100사이)");
+		while(num!=random) {
+			
+			num = sc.nextInt();
+		if(num>random) {
+			System.out.println("Down!");
+		}
+		else if(num<random){
+			System.out.println("Up!");
+		}
+		else {
+			System.out.println("정답입니다.");
+		}
+		}
+		
+	}	
 
 }
