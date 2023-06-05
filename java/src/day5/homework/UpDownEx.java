@@ -29,9 +29,11 @@ public class UpDownEx {
 			num = sc.nextInt();
 		if(num>random) {
 			System.out.println("Down!");
+			System.out.println("input number (1~100사이)");
 		}
 		else if(num<random){
 			System.out.println("Up!");
+			System.out.println("input number (1~100사이)");
 		}
 		else {
 			System.out.println("정답입니다.");
