@@ -14,10 +14,11 @@ public class NumberEx {
 			System.out.println(num);
 		}
 		else{
-			num= num +1;
+			num= num +1; //num += 1;
 			System.out.println(num);
 		}
-
+		
+		sc.close();
 	}
 
 }

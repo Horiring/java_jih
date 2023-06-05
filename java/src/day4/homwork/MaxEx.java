@@ -19,7 +19,8 @@ public class MaxEx {
 		else {
 			System.out.println("같습니다.");
 		}
-
+		//max = num>=num2 ?  num : num2;
+		sc.close();
 	}
 
 }

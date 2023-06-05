@@ -16,6 +16,8 @@ public class ScoreAverageEx {
 		
 		double avg=(double)(kor+eng+math)/3;
 		System.out.println("평균 "+avg+"점 입니다.");
+		
+		sc.close();
 	}
 
 }
