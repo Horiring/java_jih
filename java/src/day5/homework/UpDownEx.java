@@ -20,26 +20,24 @@ public class UpDownEx {
  */
 		int min=1, max=100;
 		int random = (int)(Math.random()*(max-min+1)+min);
-		int num= 0;
-		System.out.println("정답: "+random);
+		int num= min-1; //1~100 이 아닌 정수로 초기화 하면 됨. 최소값 -1 해서 랜덤으로 나올 수 없는 수
+		//System.out.println("정답: "+random);
 		Scanner sc = new Scanner(System.in);
-		System.out.println("input number (1~100사이)");
 		while(num!=random) {
-			
+			System.out.println("input number (1~100사이)");
 			num = sc.nextInt();
 		if(num>random) {
 			System.out.println("Down!");
-			System.out.println("input number (1~100사이)");
 		}
 		else if(num<random){
 			System.out.println("Up!");
-			System.out.println("input number (1~100사이)");
 		}
 		else {
 			System.out.println("정답입니다.");
 		}
-		}
 		
+		}
+		sc.close();
 	}	
 
 }

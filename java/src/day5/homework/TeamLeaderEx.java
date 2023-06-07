@@ -18,14 +18,19 @@ public class TeamLeaderEx {
 	Student number 6 is the team leader.
 */
 	
-	final int student = 30;
 	int snum;
 	Scanner sc = new Scanner(System.in);
 	System.out.println("input stdent number");
-	snum = sc.nextInt();
-	switch(snum) { 
-	}
+	snum=sc.nextInt();
 	
+	switch(snum % 3) {
+	case 0: 
+	System.out.println("팀장입니다.");
+	break;
+	default:
+	System.out.println("팀원입니다.");
+	}
+	sc.close();
 	}
 
 }
