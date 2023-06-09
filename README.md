@@ -158,3 +158,16 @@ Able to create triangle.
 (package : day4.homework, file : ScoreAverageEx)
 성적은 정수.
 
+[메서드 오버로딩]
+동일한 이름의 메소드가 여러개인 경우를 메서드 오버로딩이라고함.
+
+매개변수가 다른데 기능은 같은 경우 메서드 오버로딩을 지원하지 않으면 같은 기능에서 이름만 다른 메서드가 여러개 만들어짐
+
+조건 (결론 : 매게변수가 다름)
+1. 매게변수의 개수가 다름
+2. 매게변수의 타입이 다름
+
+예:
+
+System.out.println(1);//printlnInt
+System.out.println("1")://printlnString
