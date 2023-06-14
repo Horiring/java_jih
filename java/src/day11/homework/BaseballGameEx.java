@@ -15,14 +15,31 @@ public class BaseballGameEx {
 		int max=9;
 		int arr[]= new int[3];
 		int random =(int) (Math.random() * (max - min + 1) + min);
-		System.out.println("세 정수를 입력해주세요.");
 		int count = 0;
 		while (count < 3) {
 			random = (int) (Math.random() * (max - min + 1) + min);
-			if(!contains(arr,random,count)) {
+			if(!contains(arr,random,count)) {	
 				arr[count]=random;
+				System.out.print(arr[count]+" ");
 				count++;
 			}
+		}
+		System.out.println();
+		System.out.println("세개의 정수를 입력해주세요 ex(1 3 5)" );
+		int a[] = new int[arr.length];
+		for(int i =0; i<a.length;i++) {
+			a[i] = sc.nextInt();
+		}
+		for(int i =0;i<arr.length;i++) {
+		if(arr[i]==a[i]) {
+			System.out.print("s ");
+		}
+		else if(arr[i]==a[i]) {
+			System.out.print("b ");
+		}
+		else {
+			System.out.print("30 ");
+		}
 		}
 		
 		
