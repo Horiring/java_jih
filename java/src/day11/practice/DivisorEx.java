@@ -1,5 +1,7 @@
 package day11.practice;
 
+import array.Array;
+
 public class DivisorEx {
 
 	public static void main(String[] args) {
@@ -19,6 +21,9 @@ public class DivisorEx {
 		}
 		for(int i=0;i<arr.length;i++)
 		System.out.println(arr[i]);
+		
+		Array.printArray(arr);
+		Array.printArray(arr, 0, 5);
 	}
 
 }
