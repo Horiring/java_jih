@@ -45,38 +45,30 @@ public class VocabularyNoteController {
 	 *	메서드명 : runMenu
 	 */
 	private void runMenu(int menu) {
-		switch(menu) {
-		//메뉴가 1이면 단어 추가 기능을 실행
+		switch (menu) {
+		// 메뉴가 1이면 단어 추가 기능을 실행
 		case 1:
-			System.out.println("=============");
 			insertWord();
-			System.out.println("=============");
 			break;
-		//메뉴가 2이면 단어 삭제 기능을 실행
+		// 메뉴가 2이면 단어 삭제 기능을 실행
 		case 2:
-			System.out.println("=============");
 			deleteWord();
-			System.out.println("=============");
 			break;
-		//메뉴가 3이면 단어 수정 기능을 실행
+		// 메뉴가 3이면 단어 수정 기능을 실행
 		case 3:
-			System.out.println("=============");
 			updateWord();
-			System.out.println("=============");
 			break;
-		//메뉴가 4이면 단어 출력 기능을 실행
+		// 메뉴가 4이면 단어 출력 기능을 실행
 		case 4:
-			System.out.println("=============");
 			printWord();
-			System.out.println("=============");
 			break;
-		//메뉴가 5이면 프로그램을 종료
+		// 메뉴가 5이면 프로그램을 종료
 		case 5:
 			System.out.println("=============");
 			System.out.println("프로그램 종료!");
 			System.out.println("=============");
 			break;
-		//메뉴가 그외이면 잘못된 메뉴라고 출력
+		// 메뉴가 그외이면 잘못된 메뉴라고 출력
 		default:
 			System.out.println("=============");
 			System.out.println("잘못된 메뉴 선택");
@@ -174,9 +166,47 @@ public class VocabularyNoteController {
 			break;
 			// 뜻 수정
 		case 2:
+			System.out.print("단어 : ");
+			String title = sc.next();
+			//단어를 출력하고, 단어가 없으면 안내문구 출력후 종료
+			if(!note.search(title)) {
+				System.out.println("없는 단어입니다.");
+				return ;
+			}
+			//수정할 뜻의 번호를 입력
+			System.out.print("수정할 뜻 번호 선택 : ");
+			int num = sc.nextInt();
+			sc.nextLine();//엔터 처리
+			//수정될 뜻을 입력
+			System.out.print("수정할 뜻 : ");
+			String meaning = sc.nextLine();
+			//단어장에서 수정
+			if(!note.updateMeaning(title, num, meaning)) {
+				System.out.println("뜻 수정 실패!");
+			}
+			else {
+				System.out.println("뜻 수정 성공!");
+			}
 			break;
 			// 뜻 삭제
 		case 3:
+			//뜻을 삭제할 단어를 입력
+			System.out.print("단어 : ");
+			String title2 = sc.next();
+			//단어를 출력하고, 단어가 없으면 안내문구 출력후 종료
+			if(!note.search(title2)) {
+				System.out.println("없는 단어입니다.");
+				return ;
+			}
+			//수정할 뜻의 번호를 입력
+			System.out.print("삭제할 뜻 번호 선택 : ");
+			int num2 = sc.nextInt();
+			if(!note.deleteMeaning(title2,num2)) {
+				System.out.println("뜻 삭제 실패!");
+			}
+			else {
+				System.out.println("뜻 삭제 성공!");
+			}
 			break;
 		}
 	}

@@ -104,6 +104,24 @@ public class VocabularyNote {
 		wordList[wordCount] = null;
 		return true;
 	}
+	/**	단어와 삭제할 뜻의 번호가 주어지면 뜻을 삭제하고, 삭제 여부를 알려주는 메서드
+	 * 	매개변수 :	 단어와 뜻 번호 => String title, int num
+	 * 	리턴타입 :	 뜻 삭제 여부 => boolean
+	 * 	메서드명 : deleteMeaning
+	 */
+	public boolean deleteMeaning(String title, int num) {
+		// 단어의 위치
+		int index = indexOf(title);
+		//단어가 없으면 삭제 못함
+		if(index == -1) {
+			return false;
+		}
+		Word tmp = wordList[index];
+		if(tmp.removeMeaning(num)) {
+			return true;
+		}
+		return true;
+	}
 	/**단어가 주어지면 단어가 있는 위치를 알려주는 메서드
 	 * 단어가 없으면 -1
 	 * 매개변수 : 단어 => String title
@@ -124,39 +142,41 @@ public class VocabularyNote {
 	
 	/**단어가 주어지면 단어장에 해당 단어를 출력하는 메서드
 	 * 매개변수 : 단어 => String title
-	 * 리턴타입 : 없음 => void
+	 * 리턴타입 : 단어가 있는지 없는지 => boolean
 	 * 메서드명 : search
 	 */
-	public void search(String title) {
+	public boolean search(String title) {
 		int index = indexOf(title);
 		
 		if(index == -1) {
 			System.out.println("No words found");
-			return ;
+			return false ;
 		}
 		
 		wordList[index].print();
+		return true;
 	}
 	
 	/**단어와 수정할 뜻의 번호와 수정할 뜻이 주어지면 단어의 뜻을 수정하는 메서드
 	 * 매개변수 : 단어, 수정할 뜻 번호, 수정할 뜻
 	 * 		=> String title, int meaningIndex, String meaning
-	 * 리턴타입 : 없음 => void
+	 * 리턴타입 : 수정여부 => boolean
 	 * 메서드명 : updateMeaing
 	 */
-	public void updateMeaning(String title, int meaningIndex, String meaning) {
+	public boolean updateMeaning(String title, int meaningIndex, String meaning) {
 
 		int index = indexOf(title);
 		
 		if(index == -1) {
 			System.out.println("No words found");
-			return; 
+			return false; 
 		}
 		
 		if(!wordList[index].updateMeaning(meaningIndex, meaning)) {
-			System.out.println("Wrong number");
+			//System.out.println("Wrong number");
+			return false;
 		}
-		
+		return true;
 	}
 	
 	/**단어와 수정할 단어가 단어가 주어지면 단어를 수정하고 수정 여부를 알려주는 메서드
