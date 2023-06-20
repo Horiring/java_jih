@@ -14,6 +14,9 @@ public class CastEx {
 		
 		//1/2는 문법에는 문제가 없지만 원하는 결과를 얻기위해서 강제형변환을 함.
 		System.out.println((double)1/2);
+
 	}
 
 }
+
+
