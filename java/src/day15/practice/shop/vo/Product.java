@@ -12,7 +12,14 @@ public class Product {
 	private String category;//분류
 	//생성자
 	
-	public Product() {}
+	public Product(Product product) {
+		this.name = product.name;
+		this.modelName = product.modelName;
+		this.price = product.price;
+		this.amount = product.amount;
+		this.category = product.category;
+	
+	}
 	public Product(String name, String modelName, int price, int amount, String category) {
 		this.name = name;
 		this.modelName = modelName;
@@ -44,9 +51,13 @@ public class Product {
 	}
 	
 	public void print() {
+		System.out.println("===============");
 		System.out.println("제품명 : " + name);
+		System.out.println("모델명 : "+ modelName);
+		System.out.println("분류 : " +category);
 		System.out.println("수량 : " +amount);
 		System.out.println("가격 : " +price);
-		System.out.println("분류 : " +category);
+		System.out.println("===============");
+		
 	}
 }

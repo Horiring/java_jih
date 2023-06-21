@@ -12,6 +12,11 @@ public class JavaSample {
 	public static void main(String[] args) {
 		
 		System.out.println("Hello Java!"); //콘솔창에 원하는 문구를 출력하는 기능을 가진 것(메소드)
+		String num = ""+1;
+		for(int i = 0;i<5; i++) {
+			num +=2;
+		}
+		System.out.println(num);
 	}
 
 }
