@@ -87,13 +87,36 @@ private void recevingProduct() {
 }
 
 private void selectMenu() {
-	// TODO Auto-generated method stub
+	printselectMenu();
+	System.out.print("번호를 입력해주세요 : ");
+	int drink = sc.nextInt();
+	switch(drink) {
+	case 1:
+		System.out.println("사이다를 선택했습니다.");
+		break;
+	case 2:
+		System.out.println("콜라를 선택했습니다.");
+		break;
+	case 3:
+		System.out.println("환타를 선택했습니다.");
+		break;
+	default:
+		System.out.println("없는 번호입니다.");
+	}
 	
 }
-
+private void printselectMenu() {
+	System.out.println("===========");
+	System.out.println("1.사이다 (700원)");
+	System.out.println("2.콜라 (800원)");
+	System.out.println("3.환타 (600원)");
+}
 private void input() {
 	System.out.println("금액을 투입해주세요 : ");
 	int amount = sc.nextInt();
 			
+}
+private void changeMoney() {
+	
 }
 }
