@@ -1,4 +1,4 @@
-package day22.lambda.practice.vo;
+package day22.lambda.practice.student.vo;
 
 import java.util.Objects;
 

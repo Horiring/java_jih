@@ -1,13 +1,13 @@
-package day22.lambda.practice.controller;
+package day22.lambda.practice.student.controller;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
+import java.util.function.Predicate;
 
-import day22.lambda.practice.vo.Student;
+import day22.lambda.practice.student.vo.Student;
 
-public class StudentManager3 implements Program{
+public class StudentManager2 implements Program {
 	private static final int EXIT = 4;
 	private Scanner sc = new Scanner(System.in);
 	private List<Student> list =Arrays.asList(
@@ -40,31 +40,36 @@ public class StudentManager3 implements Program{
 	}
 	@Override
 	public void runMenu(int menu) {
-		Stream<Student> listStream = list.stream();
 		switch (menu) {
 		case 1:
-			listStream.forEach(std->System.out.println(std));
+			print(s->true);
 			break;
 		case 2:
 			System.out.print("검색할 학년 입력 : ");
-			int grade = sc.nextInt();		
-			listStream.filter(num -> num.getGrade()==grade).forEach(num->System.out.println(num));
+			final int grade = sc.nextInt();
+			print(s->s.getGrade()==grade);
 			break;
 		case 3:
 			System.out.print("학년 반 번호 입력 : ");
 			final int grade2 = sc.nextInt();
 			final int classNum2 = sc.nextInt();
 			final int num2 = sc.nextInt();
-			listStream.filter(std->std.equals(new Student(grade2,classNum2,num2,null)))
-						.forEach(std->System.out.println(std));
+			print(s->s.equals(new Student(grade2,classNum2,num2,"")));
 			break;
 		case 4:
 			System.out.println("프로그램 종료");
 		default:
 			System.out.println("Wrong menu!");
 		}
+		
+		
 	}
-}
-
-
-
+	
+	private void print(Predicate<Student> p) {
+		for(Student tmp:list) {
+			if(p.test(tmp)) {
+				System.out.println(tmp);
+			}
+		}
+	}
+}	

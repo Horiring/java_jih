@@ -1,4 +1,4 @@
-package day22.lambda.practice.controller;
+package day22.lambda.practice.student.controller;
 
 public interface Program {
 	void printMenu();

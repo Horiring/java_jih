@@ -1,6 +1,6 @@
-package day22.lambda.practice.run;
+package day22.lambda.practice.student.run;
 
-import day22.lambda.practice.controller.StudentManager3;
+import day22.lambda.practice.student.controller.StudentManager3;
 
 public class Run {
 
