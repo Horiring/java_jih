@@ -1,5 +1,6 @@
 package day25.student.vo;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import lombok.AllArgsConstructor;
@@ -7,7 +8,9 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Student {
+public class Student implements Serializable{
+
+	private static final long serialVersionUID = -4278406918013469014L;
 	private int classNum;
 	private String name,major;
 	@Override
