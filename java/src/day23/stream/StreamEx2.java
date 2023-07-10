@@ -9,7 +9,7 @@ public class StreamEx2 {
 
 	public static void main(String[] args) {
 		//파일에 문자들을 씀
-		try(FileWriter fw = new FileWriter("test.txt")){
+		try(FileWriter fw = new FileWriter("src/day23/stream/test.txt")){
 			for(int i = 0; i<5; i++) {
 				fw.write("안녕하세요"+i+"\n");
 			}
@@ -18,7 +18,7 @@ public class StreamEx2 {
 			e.printStackTrace();
 		}
 		//파일에 쓰여 있는 문자들을 읽어옴
-		try(FileReader fr = new FileReader("test.txt")){
+		try(FileReader fr = new FileReader("src/day23/stream/test.txt")){
 			char ch[] = new char[1024];
 			int len;
 			while((len = fr.read(ch)) != -1) {

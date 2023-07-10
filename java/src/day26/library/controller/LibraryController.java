@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 import day26.library.vo.Book;
 import day26.library.vo.LoanBrowsing;
@@ -46,19 +45,27 @@ public class LibraryController implements Program{
 
 	private void bookReturn() {
 		sc.nextLine();
+		//반납도서 번호를 입력
 		System.out.print("반납할 도서번호 입력 : ");
 		String bookNum=sc.nextLine();
+		//대출한 도서가 아니면 반납을 X
 		int index = list.indexOf(new Book(null, null, null, bookNum));
-		Date returnDate = new Date();
-		LoanBrowsing lb = 
-				new LoanBrowsing(list.get(index),returnDate,14);
+		if(index == -1) {
+			System.out.println("대출한 도서가 아닙니다.");
+			return;
+		}
+		//맞으면 반납
+		Book returnBook = list.get(index);
+		returnBook.returnBook();
 		
-		//반납일을 출력
-		loanList.add(lb);
-		list.get(index).returnBook();//도서에 반납했다고 수정
-		//반납예정일 출력
+		//대출열람 리스트에서 대출한 도서에 반납일을 오늘날짜로 수정
+		//반납한 도서의 대출 열람을 찾아야 함.
+		int lbIndex = loanList.lastIndexOf(new LoanBrowsing(returnBook, null, 14));
+		LoanBrowsing tmpLb = loanList.get(lbIndex);
+		tmpLb.setReturnDate(new Date());
 		System.out.println("반납완료");
-		System.out.println("반납일 : " +lb.getReturnDateStr());
+		System.out.println("대출일 : " +tmpLb.getLoanDateStr());
+		System.out.println("반납일 : " +tmpLb.getReturnDateStr());
 	}
 
 	private void bookLoans() {
@@ -112,8 +119,9 @@ public class LibraryController implements Program{
 		//대출일을 출력
 		loanList.add(lb);
 		list.get(index).loanBook();//도서에 대출했다고 수정
-		//반납예정일 출력
 		System.out.println("대출일 : " +lb.getLoanDateStr());
+		//반납예정일 출력
+		System.out.println("반납일 : " +lb.getEstimatedDateStr());
 	}
 
 	private void bookRegistration() {
@@ -126,18 +134,22 @@ public class LibraryController implements Program{
 		String isbn = sc.nextLine();
 		System.out.print("도서번호 : ");
 		String bookNum = sc.nextLine();
-		if(!list.contains(bookNum)) {
-			list.add(new Book(title,writer,isbn,bookNum,false));
-			System.out.println("등록 성공!");
+		Book book = new Book(title, writer, isbn, bookNum);
+		if(list.contains(book)) {
+			System.out.println("이미 등록된 도서 번호입니다. 확인해주세요.");
 			return;
 		}
-		System.out.println("등록된 도서입니다.");
+		//도서 리스트에 도서 객체를 추가
+		list.add(book);
+		System.out.println("등록완료");
 	}
 
 	@Override
 	public void run() {
-		String fileName= "src/day26/library/library.txt";
-		load(fileName);
+		String bookfileName= "src/day26/library/book.txt";
+		String loanfileName= "src/day26/library/loan.txt";
+		load(bookfileName);
+		loadLoan(loanfileName);
 		int menu;
 		do {
 			printMenu();
@@ -147,7 +159,8 @@ public class LibraryController implements Program{
 			runMenu(menu);
 		}
 		while(menu != EXIT );	
-		save(fileName);
+		save(bookfileName);
+		saveLoan(loanfileName);
 	}
 
 	private void save(String fileName) {
@@ -161,7 +174,34 @@ public class LibraryController implements Program{
 				e.printStackTrace();
 			}
 	}
-
+	private void saveLoan(String fileName) {
+		try(
+				FileOutputStream fos = new FileOutputStream(fileName);
+				ObjectOutputStream oos = new ObjectOutputStream(fos)){
+				for(LoanBrowsing tmp: loanList) {
+					oos.writeObject(tmp);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	}
+	private void loadLoan(String fileName) {
+		try(ObjectInputStream ois 
+				= new ObjectInputStream(new FileInputStream(fileName))){
+				while(true) {
+					LoanBrowsing tmp = (LoanBrowsing)ois.readObject();
+					loanList.add(tmp);
+				}
+			} catch (FileNotFoundException e) {
+				System.out.println("불러올 파일이 없습니다.");
+			} catch (EOFException e) {
+				System.out.println("불러오기 완료");
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				System.out.println("LoanBrowsing 클래스를 찾을 수 없습니다.");
+			} 
+	}
 	private void load(String fileName) {
 		try(ObjectInputStream ois 
 				= new ObjectInputStream(new FileInputStream(fileName))){
