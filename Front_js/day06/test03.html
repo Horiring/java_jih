@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>회원가입</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<script src="../js/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
+	<style>
+		body{
+			background-color: #DEEAF6;
+		}
+		.container{
+			width: 500px;
+			height: 500px;
+			background-color: #ededed;
+		}
+		.form-control{
+			border: 0;
+			border-radius: 0%;
+			border-bottom: 2px dashed;
+			background: #ededed;
+		}
+		#password:hover +.pw-message{
+			display: block;
+		}
+		
+		.pw-message{
+			color: #b6b6b6;
+			display: none;
+		}
+		[class^=error]{
+			color: red; margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>회원가입</h1>	
+		<form action="">
+			<div class="form-group">
+				<span>아이디</span>
+				<input type="text" class="form-control" id="usr" name="id" placeholder="">
+			</div>
+			<div class="error" id="error-id"></div>
+			<div class="form-group">
+				<span>패스워드</span>
+				<input type="password" class="form-control" name="pw" placeholder="" id="password">
+				<span class="pw-message">영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자</span>
+			</div>
+			<div class="error" id="error-pw"></div>
+			<div class="form-group">
+				<span>패스워드 확인</span>
+				<input type="password" class="form-control" name="pw2" placeholder="" id="password2">
+			</div>
+			<div class="error" id="error-pw2"></div>
+			<div class="form-group">
+				<span>이메일</span>
+				<input type="text" class="form-control" name="email" placeholder="">
+			</div>
+			<div class="error" id="error-email"></div>
+			<div class="form-group">
+				<span>주소</span>
+				<input type="text" class="form-control" name="address" placeholder="">
+				<br>
+				<input type="text" class="form-control" name="address" placeholder="">
+			</div>
+			<button class="btn btn-outline-success col-12">가입</button>
+		</form>
+	</div>
+	<script>
+	$('#usr').change(function(){
+			let text = $(this).val();
+			if(!text){
+				$('#error-id').text('필수입력항목입니다.');
+			}
+			else{
+				$('#error-id').text('');
+			}
+		});
+		$('#password').change(function(){
+			let text = $(this).val();
+			if(!text){
+				$('#error-pw').text('필수입력항목입니다.');
+			}
+			else{
+				$('#error-pw').text('');
+			}
+		});
+		$('#password2').change(function(){
+			let text = $(this).val();
+			if(!text){
+				$('#error-pw2').text('필수입력항목입니다.');
+			}
+			else{
+				$('#error-pw2').text('');
+			}
+		});
+	</script>
+</body>
+</html>

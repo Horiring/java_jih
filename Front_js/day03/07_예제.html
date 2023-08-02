@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>예제</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.box{
+			width: 500px;
+			height: 500px;
+		}
+
+	</style>
+</head>
+<body>
+	<button class="btn-a">버튼1</button>
+	<button class="btn-b">버튼2</button>
+	<button class="btn-c">버튼3</button>
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+	<div class="box box3"></div>
+	<script>
+		$('.box').hide();
+		$('.btn-a').click(function(){
+			$('.box').css('background-color','red');
+			$('.box1').show();
+			$('.box2').hide();
+			$('.box3').hide();
+		});
+
+		$('.btn-b').click(function(){
+			$('.box').css('background-color','yellow');
+			$('.box1').hide();
+			$('.box2').show();
+			$('.box3').hide();
+		});
+	
+		$('.btn-c').click(function(){
+			$('.box').css('background-color','blue');
+			$('.box1').hide();
+			$('.box2').hide();
+			$('.box3').show();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test</title>
+</head>
+<body>
+	<form action="insert.no" method="post">
+		<fieldset>
+			<legend>공지사항 작성하기</legend>
+			<div>
+			<label for="title"><b>제목</b></label>
+			<input type="text" id="title" name="title" placeholder="제목을 입력하시오." size="30">
+		</div>
+			<div class="box">
+			<label for="content"><b>내용</b></label>
+			<textarea id="content" name="content" placeholder="내용을 입력하시오." cols="32" rows="8"></textarea>
+		</div>
+		<div>
+			<label for="uploadFile"><b>첨부파일</b></label>
+			<input type="file" name="uploadFile" id="uploadFile">
+			<br>
+			<input type="submit" value="작성하기">
+			</div>
+		</fieldset>
+	</form>
+	<hr>
+		<table border="1" width="100%">
+			<tr style="background-color:#ffA07A">
+				<th width="5%" style="color: #ffff">번호</th>
+				<th width="55%" colspan="2" style="color: #ffff">제목</th>
+				<th width="15%" style="color: #ffff">작성자</th>
+				<th width="15%" style="color: #ffff">작성일</th>
+				<th width="10%" style="color: #ffff">조회수</th>
+			</tr>
+			<tr style="background-color:#ffffe0">
+				<td width="5%">9</td>
+				<td width="40%">공지사항 제목9</td>
+				<td width="10%"><button style="width: 100%;">바로가기</button></td>
+				<td width="15%">user01</td>
+				<td width="15%">2021-03-29</td>
+				<td width="10%">34</td>
+			</tr>
+
+			<tr style="background-color:#ffffe0">
+				<td width="5%">6</td>
+				<td width="40%">공지사항 제목6</td>
+				<td width="10%"><button style="width: 100%;">바로가기</button></td>
+				<td width="15%">answ445</td>
+				<td width="15%">2021-03-12</td>
+				<td width="10%">67</td>
+			</tr>
+
+			<tr style="background-color:#ffffe0">
+				<td width="5%">3</td>
+				<td width="40%">공지사항 제목3</td>
+				<td width="10%"><button style="width: 100%;">바로가기</button></td>
+				<td width="15%">testg12</td>
+				<td width="15%">2021-03-01</td>
+				<td width="10%">98</td>
+			</tr>
+
+			<tr style="background-color:#ffffe0">
+				<td width="5%">2</td>
+				<td width="40%">공지사항 제목2</td>
+				<td width="10%"><button style="width: 100%;">바로가기</button></td>
+				<td width="15%">palwe3</td>
+				<td width="15%">2021-01-02</td>
+				<td width="10%">85</td>
+			</tr>
+
+			<tr style="background-color:#ffffe0">
+				<td width="5%">1</td>
+				<td width="40%">공지사항 제목1</td>
+				<td width="10%"><button style="width: 100%;">바로가기</button></td>
+				<td width="15%">xml23</td>
+				<td width="15%">2020-12-24</td>
+				<td width="10%">124</td>
+			</tr>
+			<tr style="background-color:#ffA07A">
+				<th width="75%" colspan="4" style="color: #ffff">전체공지사항 갯수</th>
+				<th width="25%" colspan="2"style="color: #ffff">5개</th>
+			</tr>
+		</table>
+</body>
+
+</html>

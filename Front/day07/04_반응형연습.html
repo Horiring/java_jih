@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>반응형</title>
+	<style>
+		nav {
+			position: relative;
+			height: 56px;
+		}
+
+		.list-menu {
+			border: 3px solid black;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.list-menu::after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.item-menu {
+			float: left;
+			width: 33.33%;
+		}
+
+		.item-menu+.item-menu {
+			border-left: 3px solid black;
+			margin-left: -3px;
+		}
+
+		.link-menu {
+			display: block;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			color: black;
+			text-decoration: none;
+		}
+
+		.box_ham .btn_ham {
+			padding: 10px;
+			cursor: pointer;
+			border: 0;
+			outline: 0;
+			background-color: transparent;
+		}
+
+		.box_ham .btn_ham::after {
+			content: '';
+			display: block;
+			background-image: url(../img/naver_icon.png);
+			background-size: 422px 405px;
+			background-position: -335px -284px;
+			background-repeat: no-repeat;
+			width: 26px;
+			height: 26px;
+			position: relative;
+		}
+		
+		.box_ham .btn_ham:hover::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			width: 44px;
+			height: 44px;
+			background-color: #f5f7f8;
+			border-radius: 50%;
+		}
+		
+
+		@media screen and (max-width:900px) {
+			.list-menu {
+				position: absolute;
+				top: 0;
+				right: 0;
+				opacity: 0;
+			}
+			.item-menu {
+				width: 400px;
+				float: none;
+			}
+
+			.item-menu+.item-menu {
+				border-left: 0;
+				border-top: 3px solid black;
+				margin-left: 0;
+			}
+			.box_ham:hover .list-menu{
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<div class="box_ham" for="ham">
+			<button class="btn_ham"></button>
+		
+		<ul class="list-menu">
+			<li class="item-menu">
+				<a href="#" class="link-menu">메뉴1</a>
+			</li>
+			<li class="item-menu">
+				<a href="#" class="link-menu">메뉴2</a>
+			</li>
+			<li class="item-menu">
+				<a href="#" class="link-menu">메뉴3</a>
+			</li>
+		</ul>
+	</div>
+	</nav>
+	</div>
+</body>
+
+</html>

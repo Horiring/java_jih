@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>버튼예제</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.container{
+			margin: 0; padding: 0;
+		}
+		.box{
+			height: 300px;
+			padding: 0;
+		}
+		.box1{
+			background: blue;
+		}
+		.box2{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" data-target=".box1" class="btn1 btn btn-outline-primary">블루</button>
+	<button type="button" data-target=".box2" class="btn2 btn btn-outline-success">그린</button>
+	<div class="container">
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+</div>	
+	<script>
+		$('.box').hide();
+		/*
+		$('.btn').click(function(){
+			let target = $(this).attr('data-target');
+			$('.box').hide();
+			$(target).show();
+		});
+		*/
+		$('.btn').click(function(){
+			let index = $(this).index();
+			$('.box').hide();
+			$('.box').eq(index).show();
+		});
+	</script>
+</body>
+</html>

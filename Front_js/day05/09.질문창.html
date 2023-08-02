@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>질문창</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.box{
+			width: 200px;
+			height: 150px;
+		}
+		input{
+			width: 200px;
+		}
+		.in{
+			height: 100px;
+		}
+		.btn-1{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+	<button class="btn">질문추가</button>
+	<input type="text" placeholder="질문">
+	<input type="text" class="in" placeholder="답변내용">
+	<button class="btn-1">질문등록</button>
+</div>
+	<script>
+		$('.btn').click(function(){
+			let input = 
+		`<br><input type="text" placeholder="질문">
+		<input type="text" class="in" placeholder="답변내용">
+		<button class="btn-1">질문등록</button>`
+		$('.box').append(input);
+		});
+	</script>
+</body>
+</html>

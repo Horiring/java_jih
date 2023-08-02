@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>게시판</title>
+	<style>
+		a{text-decoration: none; color: black;}
+		table{
+			width: 600px;
+      border-collapse: collapse;
+		}
+		tr>th:nth-child(1){width: 50px;}
+		tr>th:nth-child(2){width: 270px;}
+		tr>th:nth-child(3){width: 100px;}
+		tr>th:nth-child(4){width: 50px;}
+		tr>td:nth-child(2){text-align: left;}
+		tr+tr:nth-child(odd):hover{background-color: yellow;} /*2n , 2n+1로 가능*/
+		tr+tr:nth-child(even):hover{background-color: green;}
+		tbody>tr:hover{background-color: yellow;}
+		/* 
+		tr:first-child:hover{
+			background-color: transparent;
+		}
+		*/
+		td,th {
+        padding: 14px 21px;
+        color: #666;
+        font-size: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        }
+	</style>
+</head>
+<body>
+	<table border="1">
+		<thead>
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>조회수</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>2</td>
+			<td><a href="#">환영인사</a></td>
+			<td>홍길동</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td><a href="#">공지사항</a></td>
+			<td>관리자</td>
+			<td>50</td>
+		</tr>
+		</tbody>
+	</table>
+</body>
+</html>
