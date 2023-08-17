@@ -44,18 +44,18 @@
 		<form action="">
 			<div class="form-group">
 				<span>아이디</span>
-				<input type="text" class="form-control" id="usr" name="id" placeholder="">
+				<input type="text" class="form-control" id="usr" name="id" placeholder="" required>
 			</div>
 			<div class="error" id="error-id"></div>
 			<div class="form-group">
 				<span>패스워드</span>
-				<input type="password" class="form-control" name="pw" placeholder="" id="password">
+				<input type="password" class="form-control" name="pw" placeholder="" id="password" required>
 				<span class="pw-message">영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자</span>
 			</div>
 			<div class="error" id="error-pw"></div>
 			<div class="form-group">
 				<span>패스워드 확인</span>
-				<input type="password" class="form-control" name="pw2" placeholder="" id="password2">
+				<input type="password" class="form-control" name="pw2" placeholder="" id="password2" required>
 			</div>
 			<div class="error" id="error-pw2"></div>
 			<div class="form-group">
@@ -73,7 +73,7 @@
 		</form>
 	</div>
 	<script>
-	$('#usr').change(function(){
+	$('#usr').on(function(){
 			let text = $(this).val();
 			if(!text){
 				$('#error-id').text('필수입력항목입니다.');
