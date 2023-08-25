@@ -2,6 +2,7 @@ package kr.kh.app.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -44,6 +45,29 @@ public class BoardServiceImp implements BoardService {
 		}
 		boardDao.insertBoard(board);
 		return true;
+	}
+
+	@Override
+	public ArrayList<BoardVO> getBoardList() {
+		return boardDao.selectBoardList();
+	}
+
+	@Override
+	public BoardVO getBoard(int bo_num) {
+		return boardDao.selectBoard(bo_num);
+	}
+
+	@Override
+	public boolean deleteBoard(int bo_num) {
+		return boardDao.deleteBoard(bo_num) != 0;
+	}
+
+	@Override
+	public boolean updateBoard(BoardVO board) {
+		if(board == null || board.getBo_title() == null) {
+			return false;
+		}
+		return boardDao.updateBoard(board) != 0;
 	}
 
 }

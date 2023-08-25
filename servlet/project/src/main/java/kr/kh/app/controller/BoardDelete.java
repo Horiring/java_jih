@@ -1,39 +1,33 @@
 package kr.kh.app.controller;
 
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import kr.kh.app.service.BoardService;
+import kr.kh.app.service.BoardServiceImp;
 
-/**
- * Servlet implementation class BoardDelete
- */
 public class BoardDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    private BoardService boardService= new BoardServiceImp();
+    
     public BoardDelete() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/views/board/delete.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		int bo_num = Integer.parseInt(request.getParameter("bo_num"));
+		String msg = "게시글 삭제 실패!";
+		String redirectUrl = "/board/detail?bo_num=" + bo_num;
+		if(boardService.deleteBoard(bo_num)) {
+			msg = "게시글 삭제 성공!";
+			redirectUrl = "/list";
+		}
+		request.setAttribute("msg", msg);
+		request.setAttribute("url", redirectUrl);
+		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 	}
 
 }

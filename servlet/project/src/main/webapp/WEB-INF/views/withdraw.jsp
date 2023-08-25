@@ -13,7 +13,7 @@
 		<input type="password" name="pw"> <br>
 		<button>탈퇴하기</button>
 	</form>
-	<a href="<%=request.getContextPath()%>/list">리스트로이동</a>
+	${withdraw }
 	<script>
 		<% 
 			Boolean result = (Boolean)request.getAttribute("withdrawOk");
