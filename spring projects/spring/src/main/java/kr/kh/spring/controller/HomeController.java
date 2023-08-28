@@ -1,11 +1,5 @@
 package kr.kh.spring.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,20 +7,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
-
-	@RequestMapping(value = "/")
+	
+	@RequestMapping(value="/")
 	public String home(Model model) {
-		//È­¸é¿¡ µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ´Â ¹æ¹ı model¿¡ ´ã¾Æ¼­ Àü¼Û
-		//model.addAttribute("È­¸é¿¡¼­ »ç¿ëÇÒ ÀÌ¸§", Àü¼ÛÇÒ°ª);
+		//í™”ë©´ì— ë°ì´í„°ë¥¼ ì „ì†¡í•˜ëŠ” ë°©ë²• modelì— ë‹´ì•„ì„œ ì „ì†¡
+		/*model.addAttribute("í™”ë©´ì—ì„œ ì‚¬ìš©í•  ì´ë¦„", ì „ì†¡í• ê°’);*/
 		model.addAttribute("name", "abc");
 		return "home";
 	}
 	
-		@RequestMapping(value = "/test1")
-	public String test1(Model model, String id,Integer age) {
-		System.out.println("¾ÆÀÌµğ : "+ id);
-		System.out.println("³ªÀÌ : " + age);
+	@RequestMapping(value="/test1")
+	public String test1(Model model, String id, Integer age) {
+		System.out.println("ì•„ì´ë””: " +id);
+		System.out.println("ë‚˜ì´ : " + age);
 		return "test1";
 	}
-
+	
 }
