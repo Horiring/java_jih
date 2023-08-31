@@ -1,6 +1,6 @@
-package kr.kh.spring.service;
+package kr.kh.study.service;
 
-import kr.kh.spring.vo.MemberVO;
+import kr.kh.study.vo.MemberVO;
 
 public interface MemberService {
 
@@ -8,4 +8,5 @@ public interface MemberService {
 
 	MemberVO login(MemberVO member);
 
+	
 }
