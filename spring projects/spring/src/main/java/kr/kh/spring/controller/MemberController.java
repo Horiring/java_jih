@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.kh.spring.service.MemberService;
 import kr.kh.spring.util.Message;
+import kr.kh.spring.vo.BoardVO;
 import kr.kh.spring.vo.MemberVO;
 
 @Controller
@@ -45,10 +48,12 @@ public class MemberController {
 	@PostMapping(value="/member/login")
 	public String memberLoginPost(MemberVO member, Model model) {
 		Message msg = new Message("/member/login", "로그인에 실패했습니다.");
-
+		//DB에서 로그인 정보를 이용하여 가져온 회원정보. 자동로그인 여부가 없음
 		MemberVO user = memberService.login(member); 
 		if(user != null) {
-			msg = new Message("/", "로그인에 성공했습니다.");
+			msg = new Message("", "로그인에 성공했습니다.");
+			//화면에서 선택/미선택한 자동로그인 여부를 user에 저장해서 인터셉터에게 전달 
+			user.setAutoLogin(member.isAutoLogin());
 		}
 		model.addAttribute("user", user);
 		model.addAttribute("msg", msg);
@@ -58,6 +63,8 @@ public class MemberController {
 	public String memberLogout(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		user.setMe_session_limit(null);
+		memberService.updateMemberSession(user);
 		Message msg = new Message("/", null);
 		if(user != null) {
 			session.removeAttribute("user");
@@ -66,5 +73,10 @@ public class MemberController {
 		model.addAttribute("msg", msg);
 		return "message";
 	}
-	
+	@ResponseBody
+	@PostMapping("/member/check/id")
+	public Object ajaxTest3(@RequestParam("id")String id){
+		
+		return memberService.checkId(id);
+	}
 }

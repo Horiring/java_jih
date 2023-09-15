@@ -1,48 +1,19 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<meta charset="UTF-8">
+<title>로그인</title>
 </head>
 <body>
-	<!-- Grey with black text -->
-	<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<ul class="navbar-nav">
-			<li class="nav-item active"><a class="nav-link"
-				href="<c:url value='/member/signup'/>">회원가입</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/member/login'/>">로그인</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-			<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-			</li>
-		</ul>
-	</nav>
-	<div class="container">
-		<h1>로그인</h1>
-		<form action="<c:url value='/member/login'/>" method="post">
-			<div class="form-group">
-				<label for="usr">아이디</label> <input type="text" class="form-control"
-					name="me_id">
-			</div>
-			<div class="form-group">
-				<label for="pwd">비밀번호</label> <input type="password"
-					class="form-control" name="me_pw">
-			</div>
-			<button class="btn btn-outline-info col-12">로그인</button>
-		</form>
-	</div>
-
+	<h1>로그인</h1>
+	<form action="<c:url value='/member/login'/>" method="post">
+		<input type="text" name="me_id" placeholder="아이디" required> <br>
+		<input type="password" name="me_pw" placeholder="비번" required> <br>
+		<input type="checkbox" name="autoLogin" value="true">자동로그인<br>
+		<button>로그인</button>
+	</form>
 </body>
 </html>
