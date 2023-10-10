@@ -10,8 +10,7 @@
 	<form action="" method="get">
 		<div class="form-group">
 			<select class="form-control" name="bt_num">
-				<option value="0">전체</option>
-				
+				<option value="0">전체</option>				
 				<c:forEach items="${typeList }" var="type">
 					<option value="${type.bt_num}" <c:if test="${pm.cri.bt_num == type.bt_num }">selected</c:if>>${type.bt_title }</option>
 				</c:forEach>
